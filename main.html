@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Exercise Finder</h1>
+        <p>Welcome to the Exercise Finder! Whether you're looking to strengthen your chest, tone your legs, or build your arms, our tool helps you find the most effective exercises. Simply enter the body part you want to work on in the search box below and hit "Search" to see a list of top exercises.</p>
+        
+        <h2>Why Training is Important</h2>
+        <p>Regular exercise is crucial for maintaining good health. It helps to:</p>
+        <ul>
+            <li>Improve cardiovascular health</li>
+            <li>Boost muscle strength and endurance</li>
+            <li>Enhance flexibility and balance</li>
+            <li>Manage weight and reduce body fat</li>
+            <li>Improve mental health and mood</li>
+        </ul>
+        <p>By incorporating a variety of exercises targeting different body parts, you can achieve a well-rounded fitness routine that promotes overall well-being.</p>
+        
+        <div class="search-box">
+            <input type="text" id="bodyPartInput" placeholder="Enter body part (e.g., chest, legs, arms)">
+            <button onclick="findExercises()">Search</button>
+        </div>
+        <div id="exerciseResults"></div>
+        <button id="backButton" style="display:none;" onclick="goBack()">Back to Search</button>
+
+        <h3>Body Parts You Can Search For:</h3>
+        <ul id="bodyPartsList">
+            <li>Chest</li>
+            <li>Legs</li>
+            <li>Arms</li>
+            <li>Back</li>
+            <li>Shoulders</li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

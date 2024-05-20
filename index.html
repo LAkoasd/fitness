@@ -26,16 +26,18 @@
             <input type="text" id="bodyPartInput" placeholder="Enter body part (e.g., chest, legs, arms)">
             <button onclick="findExercises()">Search</button>
         </div>
+        <div id="searchInfo"></div>
         <div id="exerciseResults"></div>
+        <div id="bodyPartInfo"></div>
         <button id="backButton" style="display:none;" onclick="goBack()">Back to Search</button>
 
         <h3>Body Parts You Can Search For:</h3>
         <ul id="bodyPartsList">
-            <li>Chest</li>
-            <li>Legs</li>
-            <li>Arms</li>
-            <li>Back</li>
-            <li>Shoulders</li>
+            <li onclick="showBodyPartInfo('chest')">Chest</li>
+            <li onclick="showBodyPartInfo('legs')">Legs</li>
+            <li onclick="showBodyPartInfo('arms')">Arms</li>
+            <li onclick="showBodyPartInfo('back')">Back</li>
+            <li onclick="showBodyPartInfo('shoulders')">Shoulders</li>
         </ul>
     </div>
     <script src="script.js"></script>

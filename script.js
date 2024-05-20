@@ -36,41 +36,88 @@ const exercises = {
     ]
 };
 
+const bodyPartBenefits = {
+    chest: "Training the chest helps improve upper body strength, posture, and overall appearance. It also supports movements involving pushing and lifting.",
+    legs: "Leg exercises enhance lower body strength, improve balance and stability, and support overall mobility and athletic performance.",
+    arms: "Working out the arms increases upper body strength, enhances the appearance of the arms, and supports activities that require lifting and pulling.",
+    back: "Strengthening the back improves posture, reduces the risk of back pain, and enhances overall upper body strength.",
+    shoulders: "Training the shoulders helps improve shoulder stability and strength, supports upper body movements, and enhances the appearance of the shoulders."
+};
+
 function findExercises() {
     const bodyPart = document.getElementById('bodyPartInput').value.toLowerCase();
     const resultsDiv = document.getElementById('exerciseResults');
+    const searchInfo = document.getElementById('searchInfo');
+    const bodyPartInfo = document.getElementById('bodyPartInfo');
     const backButton = document.getElementById('backButton');
     const bodyPartsList = document.getElementById('bodyPartsList');
     const searchBox = document.querySelector('.search-box');
     const instructions = document.querySelector('p + ul');
 
     resultsDiv.innerHTML = '';
+    searchInfo.innerHTML = '';
+    bodyPartInfo.innerHTML = '';
     bodyPartsList.style.display = 'none';
     searchBox.style.display = 'none';
     instructions.style.display = 'none';
     backButton.style.display = 'block';
 
     if (exercises[bodyPart]) {
+        searchInfo.textContent = `Exercises for ${bodyPart.charAt(0).toUpperCase() + bodyPart.slice(1)}:`;
         exercises[bodyPart].forEach(exercise => {
             const exerciseDiv = document.createElement('div');
             exerciseDiv.className = 'exercise';
             exerciseDiv.textContent = exercise.name;
-            exerciseDiv.setAttribute('title', exercise.description);
+            exerciseDiv.addEventListener('click', () => toggleDescription(exerciseDiv, exercise.description));
             resultsDiv.appendChild(exerciseDiv);
         });
     } else {
-        resultsDiv.textContent = 'No exercises found for that body part. Please try another body part.';
+        searchInfo.textContent = 'No exercises found for that body part. Please try another body part.';
     }
 }
 
+function toggleDescription(exerciseDiv, description) {
+    let descriptionDiv = exerciseDiv.querySelector('.description');
+    if (descriptionDiv) {
+        descriptionDiv.remove();
+    } else {
+        descriptionDiv = document.createElement('div');
+        descriptionDiv.className = 'description';
+        descriptionDiv.textContent = description;
+        exerciseDiv.appendChild(descriptionDiv);
+    }
+}
+
+function showBodyPartInfo(bodyPart) {
+    const bodyPartInfo = document.getElementById('bodyPartInfo');
+    const backButton = document.getElementById('backButton');
+    const bodyPartsList = document.getElementById('bodyPartsList');
+    const searchBox = document.querySelector('.search-box');
+    const instructions = document.querySelector('p + ul');
+    const searchInfo = document.getElementById('searchInfo');
+    const resultsDiv = document.getElementById('exerciseResults');
+
+    bodyPartInfo.innerHTML = `<h3>Why Train Your ${bodyPart.charAt(0).toUpperCase() + bodyPart.slice(1)}?</h3><p>${bodyPartBenefits[bodyPart]}</p>`;
+    bodyPartsList.style.display = 'none';
+    searchBox.style.display = 'none';
+    instructions.style.display = 'none';
+    searchInfo.style.display = 'none';
+    resultsDiv.style.display = 'none';
+    backButton.style.display = 'block';
+}
+
+
+
 function goBack() {
     const resultsDiv = document.getElementById('exerciseResults');
+    const searchInfo = document.getElementById('searchInfo');
     const backButton = document.getElementById('backButton');
     const bodyPartsList = document.getElementById('bodyPartsList');
     const searchBox = document.querySelector('.search-box');
     const instructions = document.querySelector('p + ul');
 
     resultsDiv.innerHTML = '';
+    searchInfo.innerHTML = '';
     bodyPartsList.style.display = 'block';
     searchBox.style.display = 'flex';
     instructions.style.display = 'block';

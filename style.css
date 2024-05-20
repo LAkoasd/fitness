@@ -1,88 +1,131 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    background: #f0f0f0;
+    color: #333;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
+    background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    border-radius: 8px;
 }
 
 h1 {
-    margin-bottom: 20px;
-    font-size: 2em;
-    color: #333;
+    text-align: center;
+    color: #0066cc;
 }
 
-h2 {
-    margin-top: 30px;
-    font-size: 1.5em;
-    color: #333;
+h2, h3 {
+    color: #00509e;
 }
 
 p {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
 ul {
-    text-align: left;
-    margin: 0 auto 20px;
-    padding: 0;
-    list-style-type: disc;
-    max-width: 500px;
-}
-
-li {
-    font-size: 1.1em;
-    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .search-box {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
-input[type="text"] {
+#bodyPartInput {
     padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
+    border: 2px solid #ddd;
     border-radius: 4px;
+    font-size: 16px;
     width: 70%;
+    margin-right: 10px;
 }
 
 button {
     padding: 10px 20px;
-    font-size: 16px;
+    background: #0066cc;
+    color: #fff;
     border: none;
     border-radius: 4px;
-    background-color: #28a745;
-    color: white;
     cursor: pointer;
-    margin-left: 10px;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #218838;
+    background: #00509e;
 }
 
-#exerciseResults, #bodyPartsList {
-    margin-top: 20px;
+#searchInfo {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    color: #0066cc;
 }
 
-.exercise, .body-part {
-    background-color: #e9ecef;
+#exerciseResults {
+    margin: 20px 0;
+}
+
+.exercise {
     padding: 10px;
+    margin: 10px 0;
+    background: #e6f2ff;
+    border-left: 5px solid #0066cc;
     border-radius: 4px;
-    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.exercise:hover {
+    background: #cce4ff;
+}
+
+.description {
+    padding: 10px;
+    margin-top: 10px;
+    background: #f0f8ff;
+    border-left: 5px solid #00509e;
+    border-radius: 4px;
+}
+
+#backButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: #cc3300;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#backButton:hover {
+    background: #a32900;
+}
+
+#bodyPartsList {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#bodyPartsList li {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 10px 20px;
+    background: #0066cc;
+    color: #fff;
+    border-radius: 4px;
+}
+
+#bodyPartsList li:hover {
+    background: #00509e;
 }
 
